@@ -1,0 +1,18 @@
+[root@Labs5610 ar]# ftp 10.0.0.22
+^[[D^C[root@Labs5610ftp 1
+ftp: connect: Invalid argument
+ftp> passive no
+Passive mode off.
+ftp> ls
+Not connected.
+ftp> ^C
+ftp> ^Z
+[1]+  Stopped                 ftp 1
+[root@Labs5610 ar]# ftp 192.168.56.26
+ftp: connect: Connection refused
+ftp> passive no
+Passive mode off.
+ftp> ls
+Not connected.
+ftp> ^Z
+[2]+  Stopped                 ftp 192.168.56.26

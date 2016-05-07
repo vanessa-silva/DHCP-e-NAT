@@ -1,0 +1,7 @@
+Router#show ip dhcp binding 
+Bindings from all pools not associated with VRF:
+IP address          Client-ID/	 	    Lease expiration        Type
+		    Hardware address/
+		    User name
+172.16.0.11         01ce.55bc.0b4a.80       Infinite                Manual
+172.16.0.50         0148.5b39.c32b.71       May 04 2016 12:00 PM    Automatic

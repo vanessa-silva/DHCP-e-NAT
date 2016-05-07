@@ -1,0 +1,16 @@
+[root@localhost ar]# ftp 10.0.0.1
+ftp: connect: Connection refused
+ftp> passive no
+Passive mode off.
+ftp> ls
+Not connected.
+ftp> ^C
+ftp> ^Z
+[1]+  Stopped                 ftp 10.0.0.1
+[root@localhost ar]# ftp 10.0.0.1
+ftp: connect: Connection refused
+ftp> ^Z
+[2]+  Stopped                 ftp 10.0.0.1
+[root@localhost ar]# ftp 192.168.56.26
+ftp: connect: Connection refused
+ftp> 

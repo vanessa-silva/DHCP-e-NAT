@@ -1,0 +1,50 @@
+[root@Labs5610 Trab3]# ftp 192.168.56.26
+Connected to 192.168.56.26 (192.168.56.26).
+220 FTP Server ready.
+Name (192.168.56.26:root): ar
+331 Password required for ar
+Password:
+230 User ar logged in
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls
+227 Entering Passive Mode (10,0,0,22,171,141).
+^C
+receive aborted
+waiting for remote to finish abort
+ftp> passive no
+Passive mode off.
+ftp> ls
+200 PORT command successful
+150 Opening ASCII mode data connection for file list
+-rw-rw-r--   1 ar       ar            399 Mar 15 12:14 1b1.txt~
+-rw-rw-r--   1 ar       ar             71 Mar 15 12:21 1b2.txt~
+drwxr-xr-x   2 ar       ar           4096 Dec 17 12:09 Desktop
+drwxr-xr-x   2 ar       ar           4096 Dec 17 12:09 Documents
+drwxr-xr-x   2 ar       ar           4096 Jan 18 14:49 Downloads
+drwxrwxr-x   4 ar       ar           4096 Dec 21 17:25 GNS3
+drwxr-xr-x   2 ar       ar           4096 Mar 21 11:19 Maquina 2
+drwxr-xr-x   2 ar       ar           4096 Mar 21 11:19 Pictures
+drwxr-xr-x   2 ar       ar           4096 Dec 17 12:09 Public
+drwxr-xr-x   2 ar       ar           4096 Dec 17 12:09 Templates
+drwxr-xr-x   2 root     root         4096 May  4 10:22 Trab3
+drwxr-xr-x   2 ar       ar           4096 Dec 17 12:09 Videos
+-rw-rw-r--   1 ar       ar            447 Mar 15 11:29 route-n~
+-rw-r--r--   1 root     root         4410 Mar 23 17:25 test.dump
+226 Transfer complete
+ftp> get 1b1.txt~
+local: 1b1.txt~ remote: 1b1.txt~
+200 PORT command successful
+550 1b1.txt~: Permission denied
+ftp> get 1b1.txt~
+local: 1b1.txt~ remote: 1b1.txt~
+200 PORT command successful
+150 Opening BINARY mode data connection for 1b1.txt~ (399 bytes)
+226 Transfer complete
+399 bytes received in 0.0229 secs (17.39 Kbytes/sec)
+ftp> 221 Goodbye.
+
+
+
+
+#####Nota: nao conseguiria fazer ftp 10.0.0.22 por causa do NAT (endereços privados)

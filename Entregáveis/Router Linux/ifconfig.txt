@@ -1,0 +1,27 @@
+[root@Labs5616 ar]# ifconfig -a
+enp0s7: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.56.26  netmask 255.255.255.0  broadcast 192.168.56.255
+        inet6 fe80::4a5b:39ff:fec3:2b84  prefixlen 64  scopeid 0x20<link>
+        ether 48:5b:39:c3:2b:84  txqueuelen 1000  (Ethernet)
+        RX packets 20398  bytes 28243377 (26.9 MiB)
+        RX errors 374  dropped 0  overruns 374  frame 0
+        TX packets 16945  bytes 1200276 (1.1 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp1s6: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 10.0.0.1  netmask 255.255.255.0  broadcast 10.0.0.255
+        ether 00:05:5d:8a:9a:aa  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 0  (Local Loopback)
+        RX packets 49  bytes 4912 (4.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 49  bytes 4912 (4.7 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+

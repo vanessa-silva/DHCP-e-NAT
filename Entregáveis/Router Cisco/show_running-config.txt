@@ -1,0 +1,112 @@
+Router#show running-config 
+Building configuration...
+
+Current configuration : 1419 bytes
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+!
+resource policy
+!
+ip subnet-zero
+!
+!
+ip cef
+no ip dhcp use vrf connected
+ip dhcp excluded-address 172.16.0.0 172.16.0.49
+ip dhcp excluded-address 172.16.0.151 172.16.0.255
+!
+ip dhcp pool Term1
+   host 172.16.0.11 255.255.255.0
+   client-identifier 01ce.55bc.0b4a.80
+   dns-server 192.168.56.2 
+   default-router 172.16.0.1 
+   domain-name dhcp.Term1.com
+   lease 0 1
+!
+ip dhcp pool Dynamic
+   network 172.16.0.0 255.255.255.0
+   dns-server 192.168.56.2 
+   default-router 172.16.0.1 
+   domain-name dhcp.Term1.com
+   lease 0 1
+!
+!
+!
+!
+!
+!
+!         
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface FastEthernet1/0
+ ip address dhcp
+ ip nat outside
+ ip virtual-reassembly
+ duplex auto
+ speed auto
+ --More-- 
+*May  4 15:23:27.559: %CDP-4-DUPLEX_MISMATCH: duplex mismatch discovered on FastEthernet1/0 (not half duplex), with sw-blr-01.labcc.dcc.fc.up.pt GigabitEthernet0/25 (hal!        .
+interface FastEthernet1/1
+ ip address 172.16.0.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly
+ duplex auto
+ speed auto
+!
+ip classless
+!
+no ip http server
+!
+ip nat inside source list 1 interface FastEthernet1/0 overload
+ip nat inside source static tcp 172.16.0.11 22 interface FastEthernet1/0 8022
+!
+access-list 1 permit 172.16.0.0 0.0.0.255
+!
+!
+!
+!
+control-plane
+!
+!
+!         
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ login
+!
+!
+end
