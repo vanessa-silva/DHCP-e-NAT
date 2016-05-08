@@ -22,7 +22,9 @@ Captura \emph{wireshark} na interface f1/1 de \textsf{R0}, do pedido de IP para 
 
 
 \subparagraph{b.}
+Não é possível, a partir das mensagens capturadas, saber qual das duas máquinas tem um endereço estático. ...
 Apenas a partir das mensagens capturadas é possível saber qual dos dois tem um endereço estático? Justifique.?????
+
 
 \paragraph{2.}
 
@@ -30,91 +32,74 @@ Apenas a partir das mensagens capturadas é possível saber qual dos dois tem um
 Router#debug ip nat detailed
 IP NAT detailed debugging is on
 Router#
-*May  4 15:48:31.783: NAT*: i: tcp (172.16.0.11, 48844) -> (162.125.64.1, 443) 
-[878]
-*May  4 15:48:31.783: NAT*: s=172.16.0.11->192.168.56.178, d=162.125.64.1 [878]
-*May  4 15:48:31.939: NAT*: o: tcp (162.125.64.1, 443) -> (192.168.56.178, 48844)
- [49921]
-*May  4 15:48:31.939: NAT*: s=162.125.64.1, d=192.168.56.178->172.16.0.11 [49921]
-*May  4 15:48:31.939: NAT*: o: tcp (162.125.64.1, 443) -> (192.168.56.178, 48844)
-[49922]
-*May  4 15:48:31.939: NAT*: s=162.125.64.1, d=192.168.56.178->172.16.0.11 [49922]
-*May  4 15:48:31.983: NAT*: i: tcp (172.16.0.11, 48844) -> (162.125.64.1, 443) 
-[879]
-*May  4 15:48:31.983: NAT*: s=172.16.0.11->192.168.56.178, d=162.125.64.1 [879]
-*May  4 15:48:32.163: NAT*: o: tcp (162.125.64.1, 443) -> (192.168.56.178, 48844)
- [49923]
-*May  4 15:48:32.163: NAT*: s=162.125.64.1, d=192.168.56.178->172.16.0.11 [49923]
-*May  4 15:48:32.295: NAT*: i: tcp (172.16.0.11, 48844) -> (162.125.64.1, 443) 
-[880]
-*May  4 15:48:32.295: NAT*: s=172.16.0.11->192.168.56.178, d=162.125.64.1 [880]
-*May  4 15:48:32.391: NAT*: o: tcp (162.125.64.1, 443) -> (192.168.56.178, 48844) 
-[49924]
-*May  4 15:48:32.391: NAT*: s=162.125.64.1, d=192.168.56.178->172.16.0.11 [49924]
-*May  4 15:48:32.391: NAT*: o: tcp (162.125.64.1, 443) -> (192.168.56.178, 48844) 
-[49925]
-*May  4 15:48:32.391: NAT*: s=162.125.64.1, d=192.168.56.178->172.16.0.11 [49925]
-*May  4 15:48:32.435: NAT*: i: tcp (172.16.0.11, 48844) -> (162.125.64.1, 443) 
-[881]
-*May  4 15:48:32.435: NAT*: s=172.16.0.11->192.168.56.178, d=162.125.64.1 [881]
-*May  4 15:48:32.499: NAT*: o: tcp (162.125.64.1, 443) -> (192.168.56.178, 48844) 
-[49926]
-*May  4 15:48:32.499: NAT*: s=162.125.64.1, d=192.168.56.178->172.16.0.11 [49926]
-*May  4 15:48:32.499: NAT*: o: tcp (162.125.64.1, 443) -> (192.168.56.178, 48844) 
-[49927]
-*May  4 15:48:32.499: NAT*: s=162.125.64.1, d=192.168.56.178->172.16.0.11 [49927]
-*May  4 15:48:32.535: NAT*: i: tcp (172.16.0.11, 48844) -> (162.125.64.1, 443) 
-[882]
-*May  4 15:48:32.535: NAT*: s=172.16.0.11->192.168.56.178, d=162.125.64.1 [882]
-*May  4 15:48:32.683: NAT*: o: tcp (162.125.64.1, 443) -> (192.168.56.178, 48844) 
-[49928]
-*May  4 15:48:32.683: NAT*: s=162.125.64.1, d=192.168.56.178->172.16.0.11 [49928]
-*May  4 15:48:32.807: NAT*: i: tcp (172.16.0.11, 48280) -> (31.13.90.6, 443) 
-[33593]
-*May  4 15:48:32.807: NAT*: s=172.16.0.11->192.168.56.178, d=31.13.90.6 [33593]
-*May  4 15:48:32.899: NAT*: o: tcp (31.13.90.6, 443) -> (192.168.56.178, 48280)
- [18010]
-*May  4 15:48:32.899: NAT*: s=31.13.90.6, d=192.168.56.178->172.16.0.11 [18010]
-*May  4 15:48:32.935: NAT*: i: tcp (172.16.0.11, 48280) -> (31.13.90.6, 443) 
-[33594]
-*May  4 15:48:32.935: NAT*: s=172.16.0.11->192.168.56.178, d=31.13.90.6 [33594]
-*May  4 15:48:32.971: NAT*: o: tcp (162.125.64.1, 443) -> (192.168.56.178, 48844) 
-[49929]
-*May  4 15:48:32.971: NAT*: s=162.125.64.1, d=192.168.56.178->172.16.0.11 [49929]
-*May  4 15:48:32.971: NAT*: o: tcp (162.125.64.1, 443) -> (192.168.56.178, 48844) 
-[49930]
-*May  4 15:48:32.971: NAT*: s=162.125.64.1, d=192.168.56.178->172.16.0.11 [49930]
-*May  4 15:48:32.995: NAT*: i: tcp (172.16.0.11, 48844) -> (162.125.64.1, 443) 
-[883]
-*May  4 15:48:32.995: NAT*: s=172.16.0.11->192.168.56.178, d=162.125.64.1 [883]
 *May  4 15:48:33.015: NAT: Allocated Port for 172.16.0.11 -> 192.168.56.178:
  wanted 39340 got 39340
-*May  4 15:48:33.015: NAT*: i: tcp (172.16.0.11, 39340) -> (193.136.39.12, 80) 
-[44778]
 *May  4 15:48:33.015: NAT*: i: tcp (172.16.0.11, 39340) -> (193.136.39.12, 80)
-[44778]
-*May  4 15:48:33.019: NAT*: s=172.16.0.11->192.168.56.178, d=193.136.39.12 
-[44778]
-*May  4 15:48:33.051: NAT*: o: tcp (193.136.39.12, 80) -> (192.168.56.178, 39340)
- [0]
+ [44778]
+*May  4 15:48:33.015: NAT*: i: tcp (172.16.0.11, 39340) -> (193.136.39.12, 80)
+ [44778]
+*May  4 15:48:33.019: NAT*: s=172.16.0.11->192.168.56.178, d=193.136.39.12
+ [44778]
+*May  4 15:48:33.051: NAT*: o: tcp (193.136.39.12, 80) -> (192.168.56.178,
+ 39340) [0]
 *May  4 15:48:33.051: NAT*: s=193.136.39.12, d=192.168.56.178->172.16.0.11 [0]
 *May  4 15:48:33.059: NAT*: i: tcp (172.16.0.11, 39340) -> (193.136.39.12, 80)
  [44779]
-*May  4 15:48:33.059: NAT*: s=172.16.0.11->192.168.56.178, d=193.136.39.12 
-[44779]
-*May  4 15:48:33.059: NAT*: i: tcp (172.16.0.11, 39340) -> (193.136.39.12, 80) 
-[44780]
+*May  4 15:48:33.059: NAT*: s=172.16.0.11->192.168.56.178, d=193.136.39.12
+ [44779]
+*May  4 15:48:33.059: NAT*: i: tcp (172.16.0.11, 39340) -> (193.136.39.12, 80)
+ [44780]
 *May  4 15:48:33.059: NAT*: s=172.16.0.11->192.168.56.178, d=193.136.39.12
  [44780]
+*May  4 15:48:33.075: NAT*: o: tcp (193.136.39.12, 80) -> (192.168.56.178,
+ 39340) [32364]
+*May  4 15:48:33.075: NAT*: s=193.136.39.12, d=192.168.56.178->172.16.0.11
+ [32364]
+*May  4 15:48:33.291: NAT*: o: tcp (193.136.39.12, 80) -> (192.168.56.178,
+ 39340) [32365]
+*May  4 15:48:33.291: NAT*: s=193.136.39.12, d=192.168.56.178->172.16.0.11
+ [32365]
+*May  4 15:48:33.291: NAT*: o: tcp (193.136.39.12, 80) -> (192.168.56.178,
+ 39340) [32366]
+*May  4 15:48:33.291: NAT*: s=193.136.39.12, d=192.168.56.178->172.16.0.11
+ [32366]
+*May  4 15:48:33.295: NAT*: o: tcp (193.136.39.12, 80) -> (192.168.56.178,
+ 39340) [32367]
+*May  4 15:48:33.295: NAT*: s=193.136.39.12, d=192.168.56.178->172.16.0.11
+ [32367]
+*May  4 15:48:33.295: NAT*: o: tcp (193.136.39.12, 80) -> (192.168.56.178,
+ 39340) [32368]
+*May  4 15:48:33.299: NAT*: s=193.136.39.12, d=192.168.56.178->172.16.0.11
+ [32368]
+*May  4 15:48:33.323: NAT*: i: tcp (172.16.0.11, 39340) -> (193.136.39.12, 80)
+ [44781]
+*May  4 15:48:33.323: NAT*: s=172.16.0.11->192.168.56.178, d=193.136.39.12
+ [44781]
+*May  4 15:48:33.323: NAT*: i: tcp (172.16.0.11, 39340) -> (193.136.39.12, 80)
+ [44782]
+*May  4 15:48:33.323: NAT*: s=172.16.0.11->192.168.56.178, d=193.136.39.12
+ [44782]
+*May  4 15:48:33.323: NAT*: i: tcp (172.16.0.11, 39340) -> (193.136.39.12, 80)
+ [44783]
+*May  4 15:48:33.323: NAT*: s=172.16.0.11->192.168.56.178, d=193.136.39.12
+ [44783]
+*May  4 15:48:33.335: NAT*: o: tcp (193.136.39.12, 80) -> (192.168.56.178,
+ 39340) [32368]
+*May  4 15:48:33.335: NAT*: s=193.136.39.12, d=192.168.56.178->172.16.0.11
+ [32368]
+*May  4 15:48:33.335: NAT*: o: tcp (193.136.39.12, 80) -> (192.168.56.178,
+ 39340) [32369]
 
 ...
 \end{verbatim}
 
-Com base nas linhas de output de R0, explique o trabalho do NAT??????
+O trabalho do NAT é realizar uma tradução de endereços de rede privado (no nosso caso, \textsf{172.16.0.11}), em um endereço público (\textsf{192.168.56.178}). Isto permite  que um computador de uma rede interna (privada) tenha acesso ao exterior, rede pública.
 
 
 \paragraph{3.}
-comente a afirmação "Quando usamos NAT com tradução de portas, os fluxos de pacotes passam de connectionless para connection-oriented".??????
+Quando usamos o comando \texttt{clear ip nat translation *}, deixamos de receber os \textsf{"hello"}.\\
+"Quando usamos NAT com tradução de portas, os fluxos de pacotes passam de \emph{connectionless} para \emph{connection-oriented}", ou seja, o \textsf{\emph{router} Cisco}, tem uma tabela de traduções de \textsf{IPs} internos para externos e vice-versa, (mantém informação sobre as conexões).\\
+O comando acima permite-nos limpar todas as traduções dinâmicas da tabela de tradução do \emph{router}, perdendo a conexão, uma vez que apagamos toda a informação da tabela, voltando assim para \emph{connectionless}, sendo por esta razão que deixamos de receber os \textsf{"hello"}
 
 
 \paragraph{4.}
@@ -126,7 +111,8 @@ comente a afirmação "Quando usamos NAT com tradução de portas, os fluxos de 
 
 
 \subparagraph{b.}
-Identifique uma situação em que é necessário fazer port forwarding usando uma porta não-standard. ??????
+Os \textsc{IPs} privados numa rede local não são acessíveis fora da rede, a partir da internet. O \emph{port forwarding} serve para permitir que uma dada máquina chegue (usando NAT) a uma porta de um IP privado, mesmo fora dessa rede, este atribui uma porta a um dispositivo.\\
+Usando uma porta não-standard quando temos mais que um terminal numa sub-rede, teríamos de usar portas diferentes para aceder de uma rede externa a uma rede interna, neste caso, ao \textsc{\emph{router} Linux} e ao \textsc{Terminal 2}.
 
 
 \paragraph{5.}
