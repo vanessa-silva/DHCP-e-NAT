@@ -11,27 +11,27 @@ Captura \emph{wireshark} na interface f1/1 de \textsf{R0}, do pedido de IP para 
 \caption{Terminal 1 obtém endereço IP por DHCP.}
 \end{figure}
 
-Captura \emph{wireshark} na interface f1/1 de \textsf{R0}, do pedido de IP para interface \textsf{eth0 } do \textsf{terminal 2}:
+Captura \emph{wireshark} na interface f1/1 de \textsf{R0}, do pedido de IP para interface \textsf{eth0} do \textsf{terminal 2}:
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth, height=0.33\textheight]{1_a_Terminal2.png}
 \label{fig:Term2 DHCP}
-\caption{Terminal 2 obtém endereço IP por DHCP..}
+\caption{Terminal 2 obtém endereço IP por DHCP.}
 \end{figure}
 
 
 \subparagraph{b.}
 Não é possível, a partir das mensagens capturadas, saber qual das duas
 máquinas tem um endereço estático (reservado). As mensagens capturadas
-mostram uma sequência DHCP Discover, Offer, Request e Ack válida.
+mostram uma sequência \textsf{DHCP Discover}, \textsf{Offer}, \textsf{Request} e \textsf{Ack} válida.
 
-No entanto, sabendo que o intervalo da pool do DHCP não contem o IP
-atribuído a Term1, podemos concluir que este IP lhe está reservado.
+No entanto, sabendo que o intervalo da \textsf{pool} do DHCP não contem o IP
+atribuído a \textsf{Terminal 1}, podemos concluir que este IP lhe está reservado.
 
-Se tivéssemos observado uma mensagem do tipo DHCP Inform saberíamos que o
+Se tivéssemos observado uma mensagem do tipo \textsf{DHCP Inform}, saberíamos que o
 atual cliente tem um IP estático definido por si e apenas pretende
-obter informação extra (Servidor DNS e Default Gateway, por
+obter informação extra (\textsf{Servidor DNS} e \textsf{Default Gateway}, por
 exemplo).
 
 
@@ -107,8 +107,8 @@ O trabalho do NAT é realizar uma tradução de endereços de rede privado (no n
 
 \paragraph{3.}
 Quando usamos o comando \texttt{clear ip nat translation *}, deixamos de receber os \textsf{"hello"}.\\
-"Quando usamos NAT com tradução de portas, os fluxos de pacotes passam de \emph{connectionless} para \emph{connection-oriented}", ou seja, o \textsf{\emph{router} Cisco}, tem uma tabela de traduções de \textsf{IPs} internos para externos e vice-versa, (mantém informação sobre as conexões).\\
-O comando acima permite-nos limpar todas as traduções dinâmicas da tabela de tradução do \emph{router}, perdendo a conexão, uma vez que apagamos toda a informação da tabela, voltando assim para \emph{connectionless}, sendo por esta razão que deixamos de receber os \textsf{"hello"}
+"Quando usamos NAT com tradução de portas, os fluxos de pacotes passam de \emph{connectionless} para \emph{connection-oriented}", ou seja, o \textsf{\emph{router} Cisco} tem uma tabela de traduções de \textsf{IPs} internos para externos e vice-versa, (mantém informação sobre as conexões).\\
+O comando acima permite-nos limpar todas as traduções dinâmicas da tabela de tradução do \emph{router}, perdendo a conexão, uma vez que apagamos toda a informação da tabela, voltando assim para \emph{connectionless}, sendo por esta razão que deixamos de receber os \textsf{"hello"}.
 
 
 \paragraph{4.}
@@ -121,8 +121,9 @@ O comando acima permite-nos limpar todas as traduções dinâmicas da tabela de 
 
 \subparagraph{b.}
 Os \textsc{IPs} privados numa rede local não são acessíveis fora da rede, a partir da internet. O \emph{port forwarding} serve para permitir que uma dada máquina chegue (usando NAT) a uma porta de um IP privado, mesmo fora dessa rede, este atribui uma porta a um dispositivo.\\
-Usando uma porta não-standard quando temos mais que um terminal numa sub-rede, teríamos de usar portas diferentes para aceder de uma rede externa a uma rede interna, neste caso, ao \textsc{\emph{router} Linux} e ao \textsc{Terminal 2}.
+Usando uma porta não-standard quando temos mais que um terminal numa sub-rede, teríamos de usar portas diferentes para aceder de uma rede externa a uma rede interna, neste caso, ao \textsf{\emph{router} Linux} e ao \textsf{Terminal 2}.
 
+\newpage
 
 \paragraph{5.}
 
@@ -181,49 +182,51 @@ Captura \emph{wireshark} na interface \textsf{enp1s6 - 10.0.0.1} do \textsf{Rout
 Com \emph{port-forwarding} (entrada estática na tabela NAT) todos os
 pacotes para um IP+porta exterior (inside global) são sempre
 traduzidos para um IP+porta interior (inside local) o que significa
-que o quando T1 envia pacotes (ftp) à porta 21 de Router Linux, estes
-estão a ser encaminhados para o \textsf{10.0.0.22:21} (T2), destino
-inacessível pelo T1 diretamente. O router Linux reescreve os
-cabeçalhos dos pacotes com destino a 192.168.56.26:21 e origem IP:PORT
-e encaminha-os para 10.0.0.22 desta vez com cabeçalho destino
-10.0.0.22 e a mesma origem.
+que quando o \textsf{Terminal 1} envia pacotes (ftp) à porta 21 do 
+\textsf{\emph{router} Linux}, estes estão a ser encaminhados para o \textsf{10.0.0.22:21} (\textsc{Terminal 2}), destino inacessível pelo 
+\textbf{Terminal 1} diretamente. O \textsf{\emph{router} Linux} 
+reescreve os cabeçalhos dos pacotes com destino a \textsf{192.168.56.26:21} 
+e origem \textsf{IP:PORT} e encaminha-os para \textsf{10.0.0.22} 
+desta vez com cabeçalho destino \textsf{10.0.0.22} e a mesma origem.
 
 
-Como 10.0.0.22 responde a IP:PORT (192.168.56.20) e sabe a rota para
-esse destino, a comunicação é bem sucedida.
+Como \textsf{10.0.0.22} responde a \textsf{IP:PORT} (\textsf{192.168.56.20}) 
+e sabe a rota para esse destino, a comunicação é bem sucedida.
 
 
 \subparagraph{d.}
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=1\textwidth, height=0.3\textheight]{5d.png}
+\includegraphics[width=0.9\textwidth, height=0.3\textheight]{5d.png}
 \label{fig:5d}
-\caption{Captura \emph{wireshark} nas interfaces de Router Linux}
+\caption{Captura \emph{wireshark} nas interfaces de \textsf{Router Linux}.}
 \end{figure}
 
-A conexão não é bem sucedida pois o router Linux limita-se a
-retransmitir os pacotes de T2 para T1 mantendo os cabeçalhos nos
-pacotes. Como T1 não sabe a rota para o endereço de T2 escrito no
-cabeçalho (10.0.0.22), a conexão não é bidirecional, logo não
-sucedida.
+A conexão não é bem sucedida pois o \textsf{\emph{router} Linux} limita-se 
+a retransmitir os pacotes do \textsf{Terminal 2} para o \textsf{Terminal 1} 
+mantendo os cabeçalhos nos pacotes. Como \textsf{Terminal 1} não sabe a rota 
+para o endereço do \textsf{Terminal 2} escrito no cabeçalho (\textsf{10.0.0.22}), 
+a conexão não é bidirecional, logo não é bem sucedida.
 
 \subparagraph{e.}
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=1\textwidth, height=0.3\textheight]{5e.png}
+\includegraphics[width=0.9\textwidth, height=0.3\textheight]{5e.png}
 \label{fig:5e}
-\caption{Captura \emph{wireshark} nas interfaces de Router Linux}
+\caption{Captura \emph{wireshark} nas interfaces de \textsf{Router Linux}.}
 \end{figure}
 
-Com a instalação do módulo \textsf{nf\_nat\_ftp}, o Router Linux
-reescreve o cabeçalho dos pacotes que por si passam, permitindo ao
-Terminal 1 responder ao Terminal 2, através do router Linux e uma
-porta dedicada para esse efeito (neste caso 38402 é a Dst port em T1 e
-no router Linux).
+Com a instalação do módulo \textsf{nf\_nat\_ftp}, o \textsf{\emph{router} Linux}
+reescreve o cabeçalho dos pacotes que por si passam, permitindo que o
+\textsf{Terminal 1} responda ao \textsf{Terminal 2}, através do 
+\textsf{\emph{router} Linux} e uma porta dedicada para esse efeito 
+(neste caso \textsf{38402} é a \textsf{Dst port} no \textsf{Terminal 1} e
+no \textsf{\emph{router} Linux}).
 
-Como podemos ver pelo dump do Wireshark ordenado
-temporalmente, de T2 para T1 altera-se o campo source para T1
-conseguir responder; de T1 para T2 altera-se o campo destination para
-o pacote ser aceite por T2.
+Como podemos ver pelo dump do Wireshark ordenado temporalmente, do 
+\textsf{Terminal 2} para o \textsf{Terminal 1} altera-se o campo 
+\emph{source} para o \textsf{Terminal 1} conseguir responder; do 
+\textsf{Terminal 1} para o \textsf{Terminal 2} altera-se o campo 
+\emph{destination} para o pacote ser aceite pelo \textsf{Terminal 2}.
