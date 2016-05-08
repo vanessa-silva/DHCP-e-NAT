@@ -178,7 +178,19 @@ Captura \emph{wireshark} na interface \textsf{enp1s6 - 10.0.0.1} do \textsf{Rout
 \caption{Captura \emph{wireshark} na interface \textsf{10.0.0.1}.}
 \end{figure}
 
-comente os resultados?????
+Com \emph{port-forwarding} (entrada estática na tabela NAT) todos os
+pacotes para um IP+porta exterior (inside global) são sempre
+traduzidos para um IP+porta interior (inside local) o que significa
+que o quando T1 envia pacotes (ftp) à porta 21 de Router Linux, estes
+estão a ser encaminhados para o \textsf{10.0.0.22:21} (T2), destino
+inacessível pelo T1 diretamente. O router Linux reescreve os
+cabeçalhos dos pacotes com destino a 192.168.56.26:21 e origem IP:PORT
+e encaminha-os para 10.0.0.22 desta vez com cabeçalho destino
+10.0.0.22 e a mesma origem.
+
+
+Como 10.0.0.22 responde a IP:PORT (192.168.56.20) e sabe a rota para
+esse destino, a comunicação é bem sucedida.
 
 
 \subparagraph{d.}
