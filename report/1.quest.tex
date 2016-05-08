@@ -195,6 +195,35 @@ esse destino, a comunicação é bem sucedida.
 
 \subparagraph{d.}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth, height=0.3\textheight]{5d.png}
+\label{fig:5d}
+\caption{Captura \emph{wireshark} nas interfaces de Router Linux}
+\end{figure}
+
+A conexão não é bem sucedida pois o router Linux limita-se a
+retransmitir os pacotes de T2 para T1 mantendo os cabeçalhos nos
+pacotes. Como T1 não sabe a rota para o endereço de T2 escrito no
+cabeçalho (10.0.0.22), a conexão não é bidirecional, logo não
+sucedida.
 
 \subparagraph{e.}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth, height=0.3\textheight]{5e.png}
+\label{fig:5e}
+\caption{Captura \emph{wireshark} nas interfaces de Router Linux}
+\end{figure}
+
+Com a instalação do módulo \textsf{nf\_nat\_ftp}, o Router Linux
+reescreve o cabeçalho dos pacotes que por si passam, permitindo ao
+Terminal 1 responder ao Terminal 2, através do router Linux e uma
+porta dedicada para esse efeito (neste caso 38402 é a Dst port em T1 e
+no router Linux).
+
+Como podemos ver pelo dump do Wireshark ordenado
+temporalmente, de T2 para T1 altera-se o campo source para T1
+conseguir responder; de T1 para T2 altera-se o campo destination para
+o pacote ser aceite por T2.
