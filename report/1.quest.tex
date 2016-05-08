@@ -22,8 +22,17 @@ Captura \emph{wireshark} na interface f1/1 de \textsf{R0}, do pedido de IP para 
 
 
 \subparagraph{b.}
-Não é possível, a partir das mensagens capturadas, saber qual das duas máquinas tem um endereço estático. ...
-Apenas a partir das mensagens capturadas é possível saber qual dos dois tem um endereço estático? Justifique.?????
+Não é possível, a partir das mensagens capturadas, saber qual das duas
+máquinas tem um endereço estático (reservado). As mensagens capturadas
+mostram uma sequência DHCP Discover, Offer, Request e Ack válida.
+
+No entanto, sabendo que o intervalo da pool do DHCP não contem o IP
+atribuído a Term1, podemos concluir que este IP lhe está reservado.
+
+Se tivéssemos observado uma mensagem do tipo DHCP Inform saberíamos que o
+atual cliente tem um IP estático definido por si e apenas pretende
+obter informação extra (Servidor DNS e Default Gateway, por
+exemplo).
 
 
 \paragraph{2.}
