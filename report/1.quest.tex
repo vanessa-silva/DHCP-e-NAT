@@ -128,20 +128,24 @@ Usando uma porta não-standard quando temos mais que um terminal numa sub-rede, 
 \paragraph{5.}
 
 \subparagraph{a.}
+Captura \emph{wireshark} nas interfaces do \textsf{Router Linux}:
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth, height=0.3\textheight]{5a.png}
 \label{fig:enp0s7}
-\caption{Captura \emph{wireshark} nas interfaces de Router Linux}
+\caption{Captura \emph{wireshark} nas interfaces de \textsf{Router Linux}.}
 \end{figure}
 
-Este procedimento não foi bem sucedido pois o router Linux não oferece
-nenhum serviço na porta 21. Se tivéssemos tentado conectar-nos ao
-10.0.0.22, o gateway do Terminal 1 não saberia a rota para o IP. Com o
-redirecionamento da porta 21 de Router Linux para T2, iremos conseguir
-entregar-lhe pacotes e com MASQUERADING teremos uma comunicação FTP
-bidirecional efetiva como veremos nas seguintes alíneas.
+Este procedimento não foi bem sucedido pois o \textsf{\emph{router} Linux} 
+não oferece nenhum serviço na porta 21. Se tivéssemos tentado conectar-nos 
+ao \textsf{10.0.0.22}, o \textsf{gateway} do \textsf{Terminal 1} não saberia 
+a rota para o IP.\\
+Com o redirecionamento da porta 21 do \textsf{\emph{router} Linux} para 
+\textsf{Terminal 2}, iremos conseguir entregar-lhe pacotes e com 
+\textsf{MASQUERADING} teremos uma comunicação FTP bidirecional efetiva 
+como veremos nas seguintes alíneas.
+
 
 \subparagraph{b.}
 \begin{verbatim}
@@ -185,6 +189,7 @@ Captura \emph{wireshark} na interface \textsf{enp0s7 - 192.168.56.26} do \textsf
 
 Captura \emph{wireshark} na interface \textsf{enp1s6 - 10.0.0.1} do \textsf{Router Linux}:
 
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth, height=0.3\textheight]{5_b-enp1s6.png}
@@ -208,10 +213,11 @@ e sabe a rota para esse destino, a comunicação é bem sucedida.
 
 
 \subparagraph{d.}
+Captura \emph{wireshark} nas interfaces do \textsf{Router Linux}:
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.9\textwidth, height=0.3\textheight]{5d.png}
+\includegraphics[width=1\textwidth, height=0.3\textheight]{5d.png}
 \label{fig:5d}
 \caption{Captura \emph{wireshark} nas interfaces de \textsf{Router Linux}.}
 \end{figure}
@@ -222,15 +228,8 @@ mantendo os cabeçalhos nos pacotes. Como \textsf{Terminal 1} não sabe a rota
 para o endereço do \textsf{Terminal 2} escrito no cabeçalho (\textsf{10.0.0.22}), 
 a conexão não é bidirecional, logo não é bem sucedida.
 
+
 \subparagraph{e.}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.9\textwidth, height=0.3\textheight]{5e.png}
-\label{fig:5e}
-\caption{Captura \emph{wireshark} nas interfaces de \textsf{Router Linux}.}
-\end{figure}
-
 Com a instalação do módulo \textsf{nf\_nat\_ftp}, o \textsf{\emph{router} Linux}
 reescreve o cabeçalho dos pacotes que por si passam, permitindo que o
 \textsf{Terminal 1} responda ao \textsf{Terminal 2}, através do 
@@ -243,3 +242,12 @@ Como podemos ver pelo dump do Wireshark ordenado temporalmente, do
 \emph{source} para o \textsf{Terminal 1} conseguir responder; do 
 \textsf{Terminal 1} para o \textsf{Terminal 2} altera-se o campo 
 \emph{destination} para o pacote ser aceite pelo \textsf{Terminal 2}.
+
+\newpage
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth, height=0.3\textheight]{5e.png}
+\label{fig:5e}
+\caption{Captura \emph{wireshark} nas interfaces de \textsf{Router Linux}.}
+\end{figure}
